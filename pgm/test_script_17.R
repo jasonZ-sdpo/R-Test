@@ -1,10 +1,14 @@
 ##17.Import SAS dataset
 
-#install.packages("haven")
-library(haven)
+test_script_17 <- function(){
+  
+  if (!file.exists("data/test_script_17.xlsx")){
+    test_sample=as.data.frame(mtcars)
+    write_sas(test_sample, "data/test_script_17.sas7bdat")
+  }
+  
+  #import SAS dataset output before
+  df <- read_sas("data/test_script_17.sas7bdat")
+  return(df)
+}
 
-test_sample=as.data.frame(mtcars)
-write_sas(test_sample, "test_sample.sas7bdat")
-
-#import SAS dataset output before
-read_sas("test_sample.sas7bdat")
