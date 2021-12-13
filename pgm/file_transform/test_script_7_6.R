@@ -1,6 +1,6 @@
-##24.General function in pdftools
-
-test_script_24 <- function() {
+# Test Case 7.6 pdftools Related Function
+library(pdftools)
+test_script_7_6 <- function() {
   #First generate a pdf file in the path
   test_sample = as.data.frame(mtcars)
   pdf("data/test_script_24.pdf")
@@ -24,3 +24,4 @@ test_script_24 <- function() {
   #test pdf_pagesize function
   pdf_pagesize("data/test_script_24.pdf")
 }
+

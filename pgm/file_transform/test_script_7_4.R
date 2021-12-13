@@ -1,6 +1,6 @@
-##22.General function in arsenal
-
-test_script_22 <- function() {
+# Test Case 7.4 Arsenal Related Function
+library(arsenal)
+test_script_7_4 <- function() {
   #test tableby function
   data(mockstudy)
   tab1 <- tableby(arm ~ sex + age, data = mockstudy)
@@ -75,3 +75,4 @@ test_script_22 <- function() {
   summary(comparedf(df1, df2, by = "id"))
   summary(comparedf(df1, df2, by = "row.names"))
 }
+test_script_7_4()

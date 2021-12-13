@@ -1,10 +1,12 @@
-test_script_15 <- function(){
+# Test Case 6.1 Import Excel File
+library(openxlsx)
+test_script_6_1 <- function(){
   test_sample = as.data.frame(mtcars)
   
-  if (!file.exists("data/test_script_15.xlsx")){
+  if (!file.exists("data/excel_sample.xlsx")){
     write.xlsx(
       test_sample,
-      "data/test_script_15.xlsx",
+      "data/excel_sample.xlsx",
       sheetName = "Sheet1",
       col.names = T,
       row.names = F,
@@ -14,7 +16,6 @@ test_script_15 <- function(){
   }
   
   #import the excel file output before
-  df <- read.xlsx("data/test_script_15.xlsx")
-  return(df)
+  df <- read.xlsx("data/excel_sample.xlsx")
+  return(is.data.frame(df))
 }
-

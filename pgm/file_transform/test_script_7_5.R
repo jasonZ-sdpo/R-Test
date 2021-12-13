@@ -1,6 +1,6 @@
-##23.General function in lubridate
-
-test_script_23 <- function() {
+# Test Case 7.4 Arsenal Related Function
+library(lubridate)
+test_script_7_5 <- function() {
   #transform the number of seconds stored to date time
   dt <- as_datetime(1511870400)
   dt
@@ -47,7 +47,7 @@ test_script_23 <- function() {
   rollback(x)
   
   #Stamp Date-times
-  sf <- stamp("Created Sunday, Jan 17, 1999 3:34")
+  sf <- stamp("Created Sunday, Jan 17, 1999 3:34", quiet = TRUE)
   sf(ymd("2010-04-05"))
   
   #Time Zones

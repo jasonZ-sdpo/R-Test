@@ -1,6 +1,6 @@
-##20.General function in ggplot2
-##test for qplot, last_plot and ggsave
-test_script_20 <- function() {
+# Test Case 7.2 ggplot2 related function
+library(ggplot2)
+test_script_7_2 <- function() {
   qplot(
     x = cty,
     y = hwy,
@@ -11,7 +11,9 @@ test_script_20 <- function() {
   
   p = last_plot()
   p
-  ggsave("data/test_script_20.png", width = 5, height = 5)
+  ggsave("data/test_script_20.png",
+         width = 5,
+         height = 5)
   
   
   ##GRAPHICAL PRIMITIVES
@@ -276,7 +278,8 @@ test_script_20 <- function() {
   ####test for scale_*_datetime
   dates <-
     as.POSIXct(as.Date("2011/01/01") + sample(0:365, 100, replace = TRUE))
-  times <- as.POSIXct(runif(100, 0, 24 * 60 * 60), origin = "2011/01/01")
+  times <-
+    as.POSIXct(runif(100, 0, 24 * 60 * 60), origin = "2011/01/01")
   
   df <- data.frame(dates = dates,
                    times = times)
@@ -284,7 +287,10 @@ test_script_20 <- function() {
   
   ggplot(df, aes(x = dates, y = times)) +
     geom_point() +
-    scale_y_datetime(breaks = date_breaks("4 hour"), labels = date_format("%H:%M")) +
+    scale_y_datetime(
+      breaks = scales::date_breaks("4 hour"),
+      labels = scales::date_format("%H:%M")
+    ) +
     theme(axis.text.x = element_text(angle = 90))
   
   
@@ -292,20 +298,18 @@ test_script_20 <- function() {
   
   ###X & Y LOCATION SCALES
   
-
-  data(Animals) # load data
   
   # x and y axis are transformed and formatted
-  ggplot(Animals, aes(x = body, y = brain)) + geom_point() +
+  ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + geom_point() +
     scale_x_log10(
-      breaks = trans_breaks("log10", function(x)
+      breaks = scales::trans_breaks("log10", function(x)
         10 ^ x),
-      labels = trans_format("log10", math_format(10 ^ .x))
+      labels = scales::trans_format("log10", scales::math_format(10 ^ .x))
     ) +
     scale_y_log10(
-      breaks = trans_breaks("log10", function(x)
+      breaks = scales::trans_breaks("log10", function(x)
         10 ^ x),
-      labels = trans_format("log10", math_format(10 ^ .x))
+      labels = scales::trans_format("log10", scales::math_format(10 ^ .x))
     )
   
   
@@ -441,3 +445,4 @@ test_script_20 <- function() {
     scale_y_continuous(limits = c(0, 100))
   
 }
+test_script_7_2()

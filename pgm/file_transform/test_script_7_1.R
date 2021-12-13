@@ -1,7 +1,7 @@
-##19.General function in tidyverse
-library(tidyverse)
+# Test Case 7.1 Tidayverse related function
 
-test_script_19 <- function() {
+library(tidyverse)
+test_script_7_1 <- function() {
   #Summarise Cases
   summarise(mtcars, avg = mean(mpg))
   count(mtcars, cyl)

@@ -1,109 +1,63 @@
-library(testthat)
-# local_edition(3)
-library(gridExtra)
-library(ggplot2)
-library(openxlsx)
-library(haven)
-library(pdftools)
-library(tidyverse)
-
-# load required packages for ggplot test (Test scenario 3.2)
-library(scales)
-library(MASS)
-library(scales)
-library(Hmisc)
-library(quantreg)
-
-# load required package for arsenal test (Test scenario 3.4)
-library(arsenal)
-
-
-# load required package for lubridate test (Test scenario 3.5)
-library(lubridate)
-
-# load required package for export word test (Test scenario 4.6)
-library(officer)
-
-# load required package for export rtf test (Test scenario 4.7)
-library(rtf)
-
-setwd("../")
-# Test Scenario 1.1
-source("pgm/test_script_1.R")
-testthat::expect_silent(test_script_1())
-
-# Test Scenario 1.2
-source("pgm/test_script_2.R")
-testthat::expect_silent(test_script_2())
-
-# Test Scenario 2.1
-source("pgm/test_script_15.R")
-testthat::expect_silent(test_script_15())
-
-# Test Scenario 2.2
-source("pgm/test_script_16.R")
-testthat::expect_silent(test_script_16())
-
-# Test Scenario 2.3
-source("pgm/test_script_17.R")
-testthat::expect_silent(test_script_17())
-
-# Test Scenario 2.4
-source("pgm/test_script_18.R")
-testthat::expect_silent(test_script_18())
-
-# Test Scenario 3.1
-source("pgm/test_script_19.R")
-# testthat::expect_silent(test_script_19())
-
-# Test Scenario 3.2
-source("pgm/test_script_20.R")
-testthat::expect_silent(test_script_20())
-
-# Test Scenario 3.3
-source("pgm/test_script_21.R")
-testthat::expect_silent(test_script_21())
-
-# Test Scenario 3.4
-source("pgm/test_script_22.R")
-testthat::expect_silent(test_script_22())
-
-# Test Scenario 3.5
-source("pgm/test_script_23.R")
-testthat::expect_silent(test_script_23())
-
-# Test Scenario 3.6
-source("pgm/test_script_24.R")
-testthat::expect_silent(test_script_24())
-
-# Test Scenario 4.1 
-source("pgm/test_script_25.R")
-testthat::expect_silent(test_script_25())
-
-# Test Scenario 4.2
-source("pgm/test_script_26.R")
-testthat::expect_silent(test_script_26())
-
-# Test Scenario 4.3
-source("pgm/test_script_27.R")
-testthat::expect_silent(test_script_27())
-
-# Test Scenario 4.4
-source("pgm/test_script_28.R")
-testthat::expect_silent(test_script_28())
-
-# Test Scenario 4.6
-source("pgm/test_script_30.R")
-testthat::expect_silent(test_script_30())
-
-# Test Scenario 4.7
-source("pgm/test_script_31.R")
-testthat::expect_silent(test_script_31())
+source("pgm/file_import/test_script_6_1.R")
+testthat::expect_true(test_script_6_1(),
+                      label = "Test Case 6.1 Import Excel File")
 
 
 
+source("pgm/file_import/test_script_6_2.R")
+testthat::expect_true(test_script_6_2(),
+                      label = "Test Case 6.2 Import CSV File")
 
 
 
+source("pgm/file_import/test_script_6_3.R")
+testthat::expect_true(test_script_6_3(),
+                      label = "Test Case 6.3 Import SAS7BDAT File")
 
 
+
+source("pgm/file_import/test_script_6_4.R")
+testthat::expect_true(test_script_6_4(),
+                      label = "Test Case 6.4 Import PDF File")
+
+
+
+source("pgm/file_transform/test_script_7_1.R")
+testthat::expect_silent(test_script_7_1())
+
+source("pgm/file_transform/test_script_7_2.R")
+testthat::expect_silent(test_script_7_2())
+
+source("pgm/file_transform/test_script_7_3.R")
+testthat::expect_silent(test_script_7_3())
+
+source("pgm/file_transform/test_script_7_3.R")
+testthat::expect_silent(test_script_7_3())
+
+source("pgm/file_transform/test_script_7_4.R")
+testthat::expect_silent(test_script_7_4())
+
+source("pgm/file_transform/test_script_7_5.R")
+testthat::expect_silent(test_script_7_5())
+
+source("pgm/file_transform/test_script_7_5.R")
+testthat::expect_silent(test_script_7_5())
+
+
+source("pgm/file_export/test_script_8_1.R")
+testthat::expect_true(test_script_8_1(), label = "Test Case 8.1 Export Excel File")
+
+source("pgm/file_export/test_script_8_2.R")
+testthat::expect_true(test_script_8_2(), label = "Test Case 8.2 Export CSV File")
+
+source("pgm/file_export/test_script_8_3.R")
+testthat::expect_true(test_script_8_3(), label = "Test Case 8.3 Export PDF File")
+
+source("pgm/file_export/test_script_8_4.R")
+testthat::expect_true(test_script_8_4(), label = "Test Case 8.4 Export Image File")
+
+source("pgm/file_export/test_script_8_5.R")
+testthat::expect_true(test_script_8_5(), label = "Test Case 8.5 Export Word File")
+
+source("pgm/file_export/test_script_8_6.R")
+testthat::expect_true(test_script_8_6(), label = "Test Case 8.1 Export RTF File")
