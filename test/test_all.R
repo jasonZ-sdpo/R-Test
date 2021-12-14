@@ -11,9 +11,12 @@ testthat::expect_output(test_script_3_1())
 
 
 ########## Section 4 Package Management #########
-source("pgm/package_management//test_script_4_1.R")
-testthat::expect_equal(test_script_4_1(), 0)
+# move to a separate project as this project is using virtual environment.
+# source("pgm/package_management//test_script_4_1.R")
+# testthat::expect_equal(test_script_4_1(), 0)
 
+source("pgm/package_management//test_script_4_3.R")
+testthat::expect_silent(test_script_4_3)
 
 
 ########## Section 6 File Import #########
@@ -87,3 +90,8 @@ testthat::expect_true(test_script_8_6(), label = "Test Case 8.1 Export RTF File"
 source("pgm/performance/test_script_9_1.R")
 output_9_1 <- test_script_9_1()
 ggplot2::ggsave("output/performance_9_1.png", output_9_1)
+
+# source("pgm/performance/test_script_9_6.R")
+# move to a separate project as this project is using virtual environment.
+# output_9_6 <- test_script_9_6()
+# ggplot2::ggsave("output/performance_9_6.png", output_9_6)
