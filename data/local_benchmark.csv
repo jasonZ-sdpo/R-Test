@@ -1,0 +1,13 @@
+test,replications,elapsed,relative,user.self,sys.self
+linear system,100,0.02,1,0.02,0
+lm,100,0.08,4,0.08,0
+pseudoinverse,100,0.02,1,0.02,0
+linear system,1000,0.12,1,0.12,0
+lm,1000,0.79,6.583,0.79,0
+pseudoinverse,1000,0.21,1.75,0.22,0
+linear system,10000,1.2,1,1.2,0
+lm,10000,7.59,6.325,7.6,0
+pseudoinverse,10000,1.39,1.158,1.39,0
+linear system,100000,12.23,1,12.22,0
+lm,100000,72.23,5.906,72.05,0.04
+pseudoinverse,100000,13.93,1.139,13.93,0
