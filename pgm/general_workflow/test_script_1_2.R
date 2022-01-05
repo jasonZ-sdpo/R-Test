@@ -18,7 +18,8 @@
 ##
 ## ---------------------------
 # Prepare content of demographic dataset
-test_script_2 <- function(){
+library(ggplot2)
+test_script_1_2 <- function(){
   STUDYID <- c("ABC-123", "ABC-123", "ABC-123")
   USUBJID <- c("ABC-123-0001", "ABC-123-0002", "ABC-123-0003")
   SUBJID <- c("0001", "0002", "0003")

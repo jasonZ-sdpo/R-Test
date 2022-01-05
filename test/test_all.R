@@ -1,4 +1,12 @@
+########## Section 1 General Workflow #########
+source("pgm/general_workflow/test_script_1_1.R")
+testthat::expect_silent(test_script_1_1())
 
+source("pgm/general_workflow/test_script_1_2.R")
+testthat::expect_silent(test_script_1_2())
+
+source("pgm/general_workflow/test_script_1_6.R")
+testthat::expect_silent(test_script_1_6())
 
 ########## Section 2 Global Options #########
 source("pgm/global_option/test_script_2_3.R")
@@ -89,9 +97,53 @@ testthat::expect_true(test_script_8_6(), label = "Test Case 8.1 Export RTF File"
 ########## Section 9 Performance Test #########
 source("pgm/performance/test_script_9_1.R")
 output_9_1 <- test_script_9_1()
-ggplot2::ggsave("output/performance_9_1.png", output_9_1)
+write.csv(output_9_1, 'output/performance_9_1.csv')
+result <- ggplot2::ggplot(output_9_1,
+                          ggplot2::aes(
+                            x = replications,
+                            y = elapsed,
+                            color = test,
+                            linetype = type
+                          )) +
+  ggplot2::geom_line() + ggplot2::ggtitle("Test Cases 9.1 Performance Testing")
+ggplot2::ggsave("output/performance_9_1.png", result)
+
+# Require manually switch session and run the test_script_9_2.R in R Package Test
+
+source("pgm/performance/test_script_9_2.R")
+output_9_2 <- test_script_9_2()
+if(exists("output_9_1")){
+  output_9_2 <- rbind(output_9_2, output_9_1)
+  write.csv(output_9_2, 'output/performance_9_2.csv')
+}else{
+  output_9_1 <- read.csv("output/performance_9_1.csv")
+  output_9_2 <- rbind(output_9_2, output_9_1)
+  write.csv(output_9_2, 'output/performance_9_2.csv')
+}
+result <- ggplot2::ggplot(output_9_2,
+                          ggplot2::aes(
+                            x = replications,
+                            y = elapsed,
+                            color = test,
+                            linetype = type
+                          )) +
+  ggplot2::geom_line() + ggplot2::geom_point() + ggplot2::ggtitle("Test Cases 9.2 Performance Testing")
+ggplot2::ggsave("output/performance_9_2.png", result)
+
+
+source("pgm/performance/test_script_9_4.R")
+output_9_4 <- test_script_9_4()
+result <- ggplot2::ggplot(output_9_4,
+                          ggplot2::aes(
+                            x = records_number,
+                            y = elapse_time,
+                            label = file_sizes
+                          )) +
+  ggplot2::geom_line() + ggplot2::geom_point() + ggplot2::geom_text(vjust=-1) +
+  ggplot2::ggtitle("Test Cases 9.4 Performance Testing")
+ggplot2::ggsave("output/performance_9_4.png", result)
 
 # source("pgm/performance/test_script_9_6.R")
-# move to a separate project as this project is using virtual environment.
+# # move to a separate project as this project is using virtual environment.
 # output_9_6 <- test_script_9_6()
 # ggplot2::ggsave("output/performance_9_6.png", output_9_6)

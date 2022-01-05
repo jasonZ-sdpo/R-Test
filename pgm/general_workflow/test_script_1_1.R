@@ -17,7 +17,7 @@
 ##   
 ##
 ## ---------------------------
-test_script_1 <- function(){
+test_script_1_1 <- function(){
   # Prepare content of demographic dataset
   STUDYID <- c("ABC-123", "ABC-123", "ABC-123")
   USUBJID <- c("ABC-123-0001", "ABC-123-0002", "ABC-123-0003")
