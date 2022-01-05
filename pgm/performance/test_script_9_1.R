@@ -123,14 +123,6 @@ test_script_9_1 <- function() {
   local_benchmark$type <- "Local"
   benchmark <- rbind(remote_benchmark, local_benchmark)
   
-  result <- ggplot2::ggplot(benchmark,
-                            ggplot2::aes(
-                              x = replications,
-                              y = elapsed,
-                              color = test,
-                              linetype = type
-                            )) +
-    ggplot2::geom_line() + ggplot2::ggtitle("Test Cases 9.1 Performance Testing")
   
-  return(result)
+  return(benchmark)
 }
