@@ -1,5 +1,5 @@
 library(rbenchmark)
-test_script_9_1 <- function() {
+test_script_9_2 <- function() {
   remote_benchmark_100 <- benchmark(
     "lm" = {
       X <- matrix(rnorm(1000), 100, 10)
@@ -118,7 +118,7 @@ test_script_9_1 <- function() {
       remote_benchmark_10000,
       remote_benchmark_100000
     )
-  remote_benchmark$type <- "Remote"
+  remote_benchmark$type <- "Multi-Session"
   local_benchmark <- read.csv("data/local_benchmark.csv")
   local_benchmark$type <- "Local"
   benchmark <- rbind(remote_benchmark, local_benchmark)
