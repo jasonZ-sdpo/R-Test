@@ -130,6 +130,19 @@ result <- ggplot2::ggplot(output_9_2,
   ggplot2::geom_line() + ggplot2::geom_point() + ggplot2::ggtitle("Test Cases 9.2 Performance Testing")
 ggplot2::ggsave("output/performance_9_2.png", result)
 
+
+source("pgm/performance/test_script_9_4.R")
+output_9_4 <- test_script_9_4()
+result <- ggplot2::ggplot(output_9_4,
+                          ggplot2::aes(
+                            x = records_number,
+                            y = elapse_time,
+                            label = file_sizes
+                          )) +
+  ggplot2::geom_line() + ggplot2::geom_point() + ggplot2::geom_text(vjust=-1) +
+  ggplot2::ggtitle("Test Cases 9.4 Performance Testing")
+ggplot2::ggsave("output/performance_9_4.png", result)
+
 # source("pgm/performance/test_script_9_6.R")
 # # move to a separate project as this project is using virtual environment.
 # output_9_6 <- test_script_9_6()
